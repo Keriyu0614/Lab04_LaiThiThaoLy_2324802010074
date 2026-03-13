@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <!--
+    PACKAGES:
+      Swashbuckle.AspNetCore                        → Swagger UI
+      RabbitMQ.Client 6.5.0                         → IModel, AsyncEventingBasicConsumer
+      Microsoft.Extensions.Options.ConfigurationExtensions → GetSection().Get<T>()
+    REFERENCES:
+      Messaging.Common               → shared RabbitMQ lib (ConnectionManager, Topology, Events)
+      NotificationServices.Contracts → IOrderPlacedHandler interface
+  -->
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Messaging.Common\Messaging.Common.csproj" />
+    <ProjectReference Include="..\NotificationServices.Contracts\NotificationServices.Contracts.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <!--
+    PACKAGES:
+      Swashbuckle.AspNetCore                        → Swagger UI
+      Microsoft.Extensions.Options.ConfigurationExtensions → GetSection().Get<T>()
+    REFERENCES:
+      Messaging.Common      → RabbitMQ shared lib
+      OrderServices.Contracts → IOrderEventPublisher interface
+  -->
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Messaging.Common\Messaging.Common.csproj" />
+    <ProjectReference Include="..\OrderServices.Contracts\OrderServices.Contracts.csproj" />
+  </ItemGroup>
+</Project>
